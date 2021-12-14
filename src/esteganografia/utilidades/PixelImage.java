@@ -19,9 +19,6 @@ public class PixelImage {
 		this.image = ImageIO.read(new File(imgRute));
 	}
 
-
-	
-
 	public int[] componentesPixel(int pixel) {
 		int[] componentes = new int[4];
 		Color colorPixel = new Color(pixel);
@@ -40,19 +37,19 @@ public class PixelImage {
 
 	public int[] esconderChar (int pixel1, int pixel2, char c) {
 		int[] pixeles = new int[2];
-		char[] cBin = arregloBinario(c);
+		char[] cBin = Binarios.arregloBinario(c);
 		int[] compPix1 = componentesPixel(pixel1);
 		int[] compPix2 = componentesPixel(pixel2);
 		for(int i = 0; i < cBin.length; i++){
 			if(i < 4) {
-				char[] pix1Comp = arregloBinario(compPix1[i]);
+				char[] pix1Comp = Binarios.arregloBinario(compPix1[i]);
 				pix1Comp[7] = cBin[i];
-				compPix1[i] = binToInt(pix1Comp);
+				compPix1[i] = Binarios.binToInt(pix1Comp);
 
 			} else{
-				char[] pix2Comp = arregloBinario(compPix2[i-4]);
+				char[] pix2Comp = Binarios.arregloBinario(compPix2[i-4]);
 				pix2Comp[7] = cBin[i];
-				compPix2[i-4] = binToInt(pix2Comp);
+				compPix2[i-4] = Binarios.binToInt(pix2Comp);
 			}
 		}
 		pixeles[0] = obtenerRGBA(compPix1);
@@ -77,9 +74,9 @@ public class PixelImage {
 	} 
 
 	public static void main(String[] args) throws IOException{
-		PixelImage image = new PixelImage("image.png");
+		PixelImage image = new PixelImage("./archivos/image.png");
 		image.esconderString("AxelPradoEscamilla");
-		System.out.println(new String(image.arregloBinario(2)));
+		System.out.println(new String(Binarios.arregloBinario(2)));
 	}
 
 

@@ -4,5 +4,5 @@
 
 ### En el directorio howeasy ejecuta los siguientes comandos:
 
-	1.- Compilar: javac -d target src/Main.java
-	2.- Ejecutar: java -cp target/ Main
+	1.- Compilar: javac -d target src/esteganografia/utilidades* 
+	2.- Ejecutar: java -cp target/ esteganografia.utilidades.PixelImage
