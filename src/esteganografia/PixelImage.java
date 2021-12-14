@@ -83,7 +83,7 @@ public class PixelImage {
 		}
 		image.setRGB(0,0,w,h,dataBuffInt,0,w);
 		File outputfile = new File("saved.png");
-    	ImageIO.write(image, "png", outputfile);
+		ImageIO.write(image, "png", outputfile);
 	} 
 
 	public static void main(String[] args) throws IOException{
