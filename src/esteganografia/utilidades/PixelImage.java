@@ -1,3 +1,6 @@
+package esteganografia.utilidades;
+
+import esteganografia.utilidades.Binarios;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -17,20 +20,7 @@ public class PixelImage {
 	}
 
 
-	public char[] arregloBinario(int i) {
-		String iBinario = Integer.toBinaryString(i);
-		while(iBinario.length() < 8) {
-			iBinario ="0" + iBinario;
-		}
-		char[] iArreglo = iBinario.toCharArray();
-		return iArreglo;
-	}
-
-	public int binToInt(char[] binario) {
-		String binarioStr = new String(binario);
-		int entero = Integer.parseInt(binarioStr,2);
-		return entero;
-	}
+	
 
 	public int[] componentesPixel(int pixel) {
 		int[] componentes = new int[4];
