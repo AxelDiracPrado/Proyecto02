@@ -41,7 +41,7 @@ public class EsteganografiaLSB {
 		int w = image.getWidth();
 		char[] charText = str.toCharArray();
 		int[] dataBuffInt = image.getRGB(0, 0, w, h, null, 0, w);
-		System.out.println(obtenerCaracter(dataBuffInt[3],dataBuffInt[4]));
+		System.out.println(obtenerCaracter(dataBuffInt[1],dataBuffInt[4]));
 		for(int i = 0; i < charText.length; i++) {
 			int pixel1 = dataBuffInt[2*i];
 			int pixel2 = dataBuffInt[2*i + 1];
@@ -49,7 +49,7 @@ public class EsteganografiaLSB {
 			dataBuffInt[2*i] = pixeles[0];
 			dataBuffInt[2*i + 1] = pixeles[1];
 		}
-		System.out.println(obtenerCaracter(dataBuffInt[3],dataBuffInt[4]));
+		System.out.println(obtenerCaracter(dataBuffInt[1],dataBuffInt[4]));
 
 		image.setRGB(0,0,w,h,dataBuffInt,0,w);
 		File outputfile = new File("./archivos/"+ salida + ".png");
