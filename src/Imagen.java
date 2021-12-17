@@ -30,13 +30,13 @@ public class Imagen{
         return binary;
         
     }
-    public static int comparador(int c, char binario){
-        int regreso=c;
-        int lsb = c & 1;
+    public static int comparador(int canal, char binario){
+        int regreso=canal;
+        int lsb = canal & 1;
         int binary = binario - '0';
         if(lsb==binary) return regreso;
-        else if(lsb==0 && binary==1) return regreso | 255;
-        else if(lsb==1 && binary==0) return regreso & 254;
+        else if(lsb==0 && binary==1) return regreso | 1; 
+        else if(lsb==1 && binary==0) return regreso & 254; 
         return 0;
     }
     public static String recuperaBinarios(int pos,BufferedImage img,Queue<Integer> cola){
@@ -96,11 +96,7 @@ public class Imagen{
 
     posicion++;
     }
-    for(int i=0; i<posicion;i++){
-    int p = img.getRGB(0,i);
-    int a = (p>>24) & 0xff;
-  
-    }
+ 
     //Escribimos la imagen
     try{
         f = new File("image.png");
@@ -113,7 +109,6 @@ public class Imagen{
     
     String str1 = "";
     for (int j = 0; j < recuperacion.length()/8; j++) {
-
         int a = Integer.parseInt(recuperacion.substring(8*j,(j+1)*8),2);
         str1 += (char)(a);
     }
