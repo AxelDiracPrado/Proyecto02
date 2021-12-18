@@ -1,5 +1,5 @@
 # Proyecto 02.
-
+Los siguiente comandos se ejecutan desde la carpeta Proyecto02:
 	## Compilar:
 		### javac -d target/ src/esteganografia/Imagen.java src/esteganografia/utilidades/* src/esteganografia/lsb/EsteganografiaLSB.java
 	
