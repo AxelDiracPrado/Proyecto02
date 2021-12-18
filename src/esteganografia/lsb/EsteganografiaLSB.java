@@ -40,8 +40,8 @@ public class EsteganografiaLSB {
      * Métod que recupera el texto de una imagen tomando su representación 
      * de bytes.
      * @param posicion indica el limite de imagen a usar.
-     * @param imagen indica el nombre de la imagen.
-     * @param salida nombre del archivo de salida.
+     * @param imagen indica el nombre de la imagen donde se recuperará el texto.
+     * @param salida nombre del archivo de salida con el texto.
      */
     public static void recuperarCadena(int posicion, String imagen, String salida) throws IOException {
     	BufferedImage img = null;
@@ -62,6 +62,10 @@ public class EsteganografiaLSB {
     	Texto.escribirContenido(str1,"./archivos/" + salida + ".txt");
     }
 
+    /**
+     * Método que crea un BufferedImage TYPE_4BYTE_ABGR a partir de otro Buffer.
+     * @param img BufferedImage original
+     */
     public static BufferedImage copiarImage(BufferedImage img) {
     	int w = img.getWidth();
     	int h = img.getHeight();
@@ -74,6 +78,12 @@ public class EsteganografiaLSB {
     	return image;
     }
 
+    /**
+     * Método que oculta una cadena en una imagen.
+     * @param cadena es la cadena a esconder
+     * @param img es el Buffer de la imagen donde se esconderá la cadena
+     * @param salida es el nombre de la imagen de salida que oculta el texto.
+     */
     public static void esconderCadena(String cadena, BufferedImage img, String salida) {
     	BufferedImage image = copiarImage(img);
     	StringBuilder binario = Binarios.stringBinario(cadena);
@@ -104,9 +114,16 @@ public class EsteganografiaLSB {
 			ImageIO.write(image, "png", outputfile);
     	} catch(IOException e) {
 	        System.out.println(e);
-    	}   
+    	}  
+    	System.out.println("La imagen se guardo en " + "./archivos/" + salida + ".png");
 	}
 
+	/**
+	 * Método que esconde el texto de un archivo plano
+	 * @param entrada es el nombre del archivo de entrada
+	 * @param imagen es el nombre de la imagen donde se ocultara el texto del archivo
+	 * @param salida es el nombre de la imagen de salida que esconde el texto
+	 */
 	public static void esconderTexto(String entrada, String imagen, String salida) throws IOException {
 		BufferedImage img = null;
     	File f = null;
