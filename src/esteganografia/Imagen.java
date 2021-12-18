@@ -14,7 +14,16 @@ public class Imagen{
         if (args[0].equals("h")) {
             EsteganografiaLSB.esconderTexto(args[1],args[2],args[3]);
         } else if (args[0].equals("u")) {
-            EsteganografiaLSB.recuperarCadena(100, args[1],args[2]);
+            BufferedImage img = null;
+            File f = null;
+            try {
+                f = new File(args[1]);
+                img = ImageIO.read(f);
+            } catch(IOException e){
+                System.out.println(e);
+            }
+            int l = img.getWidth()/2;
+            EsteganografiaLSB.recuperarCadena(l, args[1],args[2]);
         }
         else {
             System.out.println("Opción equivocada.");

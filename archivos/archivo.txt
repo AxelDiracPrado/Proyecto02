@@ -1,1 +1,1 @@
-Hola como estas soy un robot jajajajajaja 
+La entrada del programa es un archivo .txt con una cadena de caracteres y una imagen, a la cual se le modificará para que quede escondido el texto del archivo y esa será su salida.
